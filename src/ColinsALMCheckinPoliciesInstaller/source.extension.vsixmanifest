@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="ColinsALMCheckinPolicies..960B39E0-367E-45A8-A300-AEDE505824AD" Version="1.3.1" Language="en-US" Publisher="Colin Dembovsky" />
+    <Identity Id="ColinsALMCheckinPolicies..960B39E0-367E-45A8-A300-AEDE505824AD" Version="1.3.2" Language="en-US" Publisher="Colin Dembovsky" />
     <DisplayName>Colin's ALM Checkin Policies for VS 2013 and VSO</DisplayName>
     <Description xml:space="preserve">Colin's ALM Corner Custom Checkin Policies, including a Code Review Checkin Policy</Description>
     <MoreInfo>http://colinsalmcorner.com</MoreInfo>

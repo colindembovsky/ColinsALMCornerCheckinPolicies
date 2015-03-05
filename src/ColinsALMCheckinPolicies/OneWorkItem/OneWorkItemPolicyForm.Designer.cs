@@ -40,9 +40,10 @@
 			// 
 			// btnOK
 			// 
-			this.btnOK.Location = new System.Drawing.Point(116, 79);
+			this.btnOK.Location = new System.Drawing.Point(174, 122);
+			this.btnOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(75, 23);
+			this.btnOK.Size = new System.Drawing.Size(112, 35);
 			this.btnOK.TabIndex = 3;
 			this.btnOK.Text = "OK";
 			this.btnOK.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(197, 79);
+			this.btnCancel.Location = new System.Drawing.Point(296, 122);
+			this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(75, 23);
+			this.btnCancel.Size = new System.Drawing.Size(112, 35);
 			this.btnCancel.TabIndex = 4;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
@@ -62,9 +64,10 @@
 			// rdoExactly
 			// 
 			this.rdoExactly.AutoSize = true;
-			this.rdoExactly.Location = new System.Drawing.Point(6, 11);
+			this.rdoExactly.Location = new System.Drawing.Point(9, 17);
+			this.rdoExactly.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.rdoExactly.Name = "rdoExactly";
-			this.rdoExactly.Size = new System.Drawing.Size(82, 17);
+			this.rdoExactly.Size = new System.Drawing.Size(118, 24);
 			this.rdoExactly.TabIndex = 5;
 			this.rdoExactly.TabStop = true;
 			this.rdoExactly.Text = "Exactly One";
@@ -73,9 +76,10 @@
 			// rdoAtLeast
 			// 
 			this.rdoAtLeast.AutoSize = true;
-			this.rdoAtLeast.Location = new System.Drawing.Point(94, 11);
+			this.rdoAtLeast.Location = new System.Drawing.Point(141, 17);
+			this.rdoAtLeast.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.rdoAtLeast.Name = "rdoAtLeast";
-			this.rdoAtLeast.Size = new System.Drawing.Size(87, 17);
+			this.rdoAtLeast.Size = new System.Drawing.Size(128, 24);
 			this.rdoAtLeast.TabIndex = 6;
 			this.rdoAtLeast.TabStop = true;
 			this.rdoAtLeast.Text = "At Least One";
@@ -86,9 +90,11 @@
 			this.groupBox1.Controls.Add(this.rdoAtLeast);
 			this.groupBox1.Controls.Add(this.rdoExactly);
 			this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.groupBox1.Location = new System.Drawing.Point(49, 39);
+			this.groupBox1.Location = new System.Drawing.Point(74, 60);
+			this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(223, 34);
+			this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.groupBox1.Size = new System.Drawing.Size(334, 52);
 			this.groupBox1.TabIndex = 7;
 			this.groupBox1.TabStop = false;
 			// 
@@ -96,28 +102,31 @@
 			// 
 			this.cmbTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbTypes.FormattingEnabled = true;
-			this.cmbTypes.Location = new System.Drawing.Point(49, 12);
+			this.cmbTypes.Location = new System.Drawing.Point(74, 18);
+			this.cmbTypes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.cmbTypes.Name = "cmbTypes";
-			this.cmbTypes.Size = new System.Drawing.Size(223, 21);
+			this.cmbTypes.Size = new System.Drawing.Size(332, 28);
 			this.cmbTypes.TabIndex = 8;
 			this.cmbTypes.SelectedIndexChanged += new System.EventHandler(this.cmbTypes_SelectedIndexChanged);
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(9, 15);
+			this.label2.Location = new System.Drawing.Point(14, 23);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(34, 13);
+			this.label2.Size = new System.Drawing.Size(47, 20);
 			this.label2.TabIndex = 9;
 			this.label2.Text = "Type:";
 			// 
 			// OneWorkItemPolicyForm
 			// 
 			this.AcceptButton = this.btnOK;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+			this.AutoSize = true;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(284, 112);
+			this.ClientSize = new System.Drawing.Size(426, 172);
 			this.ControlBox = false;
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.cmbTypes);
@@ -125,10 +134,10 @@
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.groupBox1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "OneWorkItemPolicyForm";
-			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "One Work Item Policy Settings";
 			this.groupBox1.ResumeLayout(false);
