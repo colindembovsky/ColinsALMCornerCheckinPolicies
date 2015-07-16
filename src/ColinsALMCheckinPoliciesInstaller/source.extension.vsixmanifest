@@ -3,13 +3,13 @@
   <Metadata>
     <Identity Id="ColinsALMCheckinPolicies..FD21D45C-C36A-4439-931D-2C5E0BFE7472" Version="2.1" Language="en-US" Publisher="Colin Dembovsky" />
     <DisplayName>Colin's ALM Checkin Policies VS 2015 and VSO</DisplayName>
-    <Description xml:space="preserve">Colin's ALM Corner Custom Checkin Policies, including a Code Review Checkin Policy for VS 2015 CTP 6</Description>
+    <Description xml:space="preserve">Colin's ALM Corner Custom Checkin Policies, including a Code Review Checkin Policy for VS 2015</Description>
     <MoreInfo>http://colinsalmcorner.com</MoreInfo>
-    <License>GNU GENERAL PUBLIC LICENSE.rtf</License>
+    <License>license.txt</License>
     <Tags>Code Review; Checkin Policies</Tags>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="14.0" />
+    <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.IntegratedShell" />
   </Installation>
   <Dependencies>
   </Dependencies>
