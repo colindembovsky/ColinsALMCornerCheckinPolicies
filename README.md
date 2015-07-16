@@ -1,3 +1,5 @@
+![](https://colinsalmcorner.visualstudio.com/DefaultCollection/_apis/public/build/definitions/f9a5b53e-c7e7-4025-945e-cc5db1b87c86/11/badge)
+
 # ColinsALMCornerCheckinPolicies
 TFVC Checkin policies (including Code Review checkin policy)
 
@@ -14,4 +16,5 @@ The policy is configurable to allow you to specify:
 * The source control path(s) that will trigger the Code Review check 
 * That the policy will fail if the Code Review Request is not Closed 
 * That the policy will fail if any response result is 'Needs Work' 
-* That the policy will pass if all response results are 'Looks Good' or •that the policy will pass if all response results are 'Looks Good' or 'With Comments' 
+* That the policy will pass if all response results are 'Looks Good' or 
+* that the policy will pass if all response results are 'Looks Good' or 'With Comments' 
