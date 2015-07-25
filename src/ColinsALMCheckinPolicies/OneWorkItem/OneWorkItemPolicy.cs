@@ -142,5 +142,13 @@ namespace ColinsALMCheckinPolicies
 			
 			return failures.ToArray();
 		}
-	}
+
+        public override string InstallationInstructions
+        {
+            get
+            {
+                return Constants.InstallationInstructions;
+            }
+        }
+    }
 }

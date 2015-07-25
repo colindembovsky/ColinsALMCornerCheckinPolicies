@@ -59,6 +59,7 @@
       <DependentUpon>CodeReviewPolicyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CodeReview\CodeReviewPolicySerializationBinding.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="OneWorkItem\OneWorkItemPolicy.cs" />
     <Compile Include="OneWorkItem\OneWorkItemPolicyConfig.cs" />
     <Compile Include="OneWorkItem\OneWorkItemPolicyForm.cs">
