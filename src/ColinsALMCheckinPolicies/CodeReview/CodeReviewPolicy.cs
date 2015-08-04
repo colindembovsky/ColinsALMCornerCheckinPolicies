@@ -206,6 +206,14 @@ namespace ColinsALMCheckinPolicies
 			}
 
 			return responses;
-		}
-	}
+        }
+
+        public override string InstallationInstructions
+        {
+            get
+            {
+                return Constants.InstallationInstructions;
+            }
+        }
+    }
 }
