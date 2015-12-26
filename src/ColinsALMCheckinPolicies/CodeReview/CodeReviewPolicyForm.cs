@@ -34,6 +34,10 @@ namespace ColinsALMCheckinPolicies
 			{
 				cmbPassLevel.SelectedItem = "Looks Good";
 			}
+            else if (Config.MinPassLevel == PassLevel.None)
+            {
+                cmbPassLevel.SelectedItem = "None";
+            }
 
 			lstPaths.Items.Clear();
 			config.Paths.ForEach(p => lstPaths.Items.Add(p));
@@ -50,6 +54,10 @@ namespace ColinsALMCheckinPolicies
 			{
 				Config.MinPassLevel = PassLevel.WithComments;
 			}
+            else if (cmbPassLevel.SelectedItem.ToString() == "None")
+            {
+                Config.MinPassLevel = PassLevel.None;
+            }
 		}
 
 		void chkRequireClose_CheckedChanged(object sender, EventArgs e)

@@ -71,7 +71,8 @@
 			this.cmbPassLevel.FormattingEnabled = true;
 			this.cmbPassLevel.Items.AddRange(new object[] {
             "Looks Good",
-            "With Comments"});
+            "With Comments",
+            "None"});
 			this.cmbPassLevel.Location = new System.Drawing.Point(152, 85);
 			this.cmbPassLevel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.cmbPassLevel.Name = "cmbPassLevel";

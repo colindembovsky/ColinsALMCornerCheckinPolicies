@@ -174,7 +174,11 @@ namespace ColinsALMCheckinPolicies
 
 			var positiveResponses = responses.Where(r => r.Fields[ClosedStatus].Value.ToString() != "Needs Work" && r.Fields[ClosedStatus].Value.ToString() != "Declined");
 
-			if (Config.MinPassLevel == PassLevel.WithComments)
+            if (Config.MinPassLevel == PassLevel.None)
+            {
+                return true;
+            }
+			else if (Config.MinPassLevel == PassLevel.WithComments)
 			{
 				return positiveResponses.Count() > 0;
 			}
