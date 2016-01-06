@@ -497,5 +497,54 @@ namespace ColinsALMCheckinPolicies.UnitTests
 				Assert.IsTrue(failures.Length == 0);
 			}
 		}
-	}
+
+        [TestMethod]
+        [TestCategory("CodeReveiw")]
+        public void TestPolicyFails_When_MinPassLeveIsNone_And_NoRequests()
+        {
+            var policy = new CodeReviewPolicy()
+            {
+                Config = new CodeReviewPolicyConfig()
+                {
+                    RequireReviewToBeClosed = false,
+                    FailIfAnyResponseIsNeedsWork = false,
+                    MinPassLevel = PassLevel.None
+                }
+            };
+
+            using (var context = ShimsContext.Create())
+            {
+                var checkin = FakeUtils.CreatePendingCheckin(new List<ShimWorkItem>());
+
+                policy.Initialize(checkin);
+                var failures = policy.Evaluate();
+                Assert.IsTrue(failures.Length > 0);
+            }
+        }
+
+        [TestMethod]
+        [TestCategory("CodeReveiw")]
+        public void TestPolicyPassess_When_MinPassLeveIsNone_And_RequestHasNoResponses()
+        {
+            var policy = new CodeReviewPolicy()
+            {
+                Config = new CodeReviewPolicyConfig()
+                {
+                    RequireReviewToBeClosed = false,
+                    FailIfAnyResponseIsNeedsWork = false,
+                    MinPassLevel = PassLevel.None
+                }
+            };
+
+            using (var context = ShimsContext.Create())
+            {
+                var reviewWorkItem = FakeUtils.CreateCodeReviewRequest(1, "Requested", "", new List<WorkItem>());
+                var checkin = FakeUtils.CreatePendingCheckin(reviewWorkItem);
+
+                policy.Initialize(checkin);
+                var failures = policy.Evaluate();
+                Assert.IsTrue(failures.Length == 0);
+            }
+        }
+    }
 }

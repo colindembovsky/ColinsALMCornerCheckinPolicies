@@ -9,7 +9,8 @@ namespace ColinsALMCheckinPolicies
 	public enum PassLevel
 	{
 		WithComments,
-		LooksGood
+		LooksGood,
+        None
 	}
 
 	[Serializable]
