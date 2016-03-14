@@ -88,7 +88,32 @@ namespace ColinsALMCheckinPolicies.UnitTests
 			}
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("CodeReveiw")]
+        public void TestPolicyPasses_When_NoReview_NoFilesFound_InSimilarConfigPath()
+        {
+            var policy = new CodeReviewPolicy()
+            {
+                Config = new CodeReviewPolicyConfig()
+                {
+                    RequireReviewToBeClosed = true,
+                    FailIfAnyResponseIsNeedsWork = true,
+                    MinPassLevel = PassLevel.LooksGood,
+                    Paths = new List<string>() { "$/Project/DEV" }
+                }
+            };
+
+            using (var context = ShimsContext.Create())
+            {
+                var checkin = FakeUtils.CreatePendingCheckin(new List<ShimWorkItem>() { null }, "$/Project/DEV-Feature1");
+
+                policy.Initialize(checkin);
+                var failures = policy.Evaluate();
+                Assert.IsTrue(failures.Length == 0);
+            }
+        }
+
+        [TestMethod]
 		[TestCategory("CodeReveiw")]
 		public void TestPolicySucceeds_When_RequireClose_And_ReviewIsClosed()
 		{

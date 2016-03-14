@@ -93,27 +93,27 @@ namespace ColinsALMCheckinPolicies.UnitTests
 			return reviewWorkItem;
 		}
 
-		internal static IPendingCheckin CreatePendingCheckin(ShimWorkItem item)
+		internal static IPendingCheckin CreatePendingCheckin(ShimWorkItem item, string rootPath = "$/Project/Folder")
 		{
-			return CreatePendingCheckin(new List<ShimWorkItem>() { item });
+			return CreatePendingCheckin(new List<ShimWorkItem>() { item }, rootPath);
 		}
 
-		internal static IPendingCheckin CreatePendingCheckin(List<ShimWorkItem> items)
-		{
+		internal static IPendingCheckin CreatePendingCheckin(List<ShimWorkItem> items, string rootPath = "$/Project/Folder")
+        {
 			return CreatePendingCheckin(items, new List<PendingChange>()
 				{
 					new ShimPendingChange()
 					{
-						ServerItemGet = () => "$/Project/Folder/Item1.cs"
+						ServerItemGet = () => rootPath + "/Item1.cs"
 					},
 					new ShimPendingChange()
 					{
-						ServerItemGet = () => "$/Project/Folder/Item2.cs"
-					},
+						ServerItemGet = () => rootPath + "/Item2.cs"
+                    },
 					new ShimPendingChange()
 					{
-						ServerItemGet = () => "$/Project/Folder/SubFolder/Item3.cs"
-					},
+						ServerItemGet = () => rootPath + "/SubFolder/Item3.cs"
+                    },
 				});
 		}
 

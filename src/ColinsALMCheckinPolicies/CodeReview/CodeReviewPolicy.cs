@@ -122,7 +122,15 @@ namespace ColinsALMCheckinPolicies
 			// only check the code review if one item is in the paths of the config
 			if (Config.Paths.Count == 0 ||
 				serverPathsAffected.Any(itemPath =>
-				Config.Paths.Any(configPath => itemPath.Replace('/', '\\').Contains(configPath.Replace('/', '\\')))))
+				    Config.Paths.Any(configPath =>
+                    {
+                        // make the path have a trailing slash to distinguish $/Project/DEV from $/Project/DEV-Feature1
+                        if (configPath != "$/")
+                        {
+                            configPath += "\\";
+                        }
+                        return itemPath.Replace('/', '\\').StartsWith(configPath.Replace('/', '\\'));
+                    })))
 			{
 				var requests = pendingCheckin.WorkItems.CheckedWorkItems.Where(w =>
 				w.WorkItem.Type.Name == "Code Review Request");
