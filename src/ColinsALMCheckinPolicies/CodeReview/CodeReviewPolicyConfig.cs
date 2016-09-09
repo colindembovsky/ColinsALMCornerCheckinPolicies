@@ -18,6 +18,7 @@ namespace ColinsALMCheckinPolicies
 	{
 		public bool RequireReviewToBeClosed { get; set; }
 		public bool FailIfAnyResponseIsNeedsWork { get; set; }
+        public bool CheckOnlyMostRecentReview { get; set; }
 		public PassLevel MinPassLevel { get; set; }
 		public List<string> Paths { get; set; }
 
