@@ -29,7 +29,8 @@ namespace ColinsALMCheckinPolicies
 			VCServer = vcServer;
 			chkFailAnyBad.Checked = Config.FailIfAnyResponseIsNeedsWork;
 			chkRequireClose.Checked = Config.RequireReviewToBeClosed;
-			cmbPassLevel.SelectedItem = "With Comments";
+            chkOnlyMostRecent.Checked = Config.CheckOnlyMostRecentReview;
+            cmbPassLevel.SelectedItem = "With Comments";
 			if (Config.MinPassLevel == PassLevel.LooksGood)
 			{
 				cmbPassLevel.SelectedItem = "Looks Good";
@@ -44,7 +45,8 @@ namespace ColinsALMCheckinPolicies
 
 			chkFailAnyBad.CheckedChanged += chkFailAnyBad_CheckedChanged;
 			chkRequireClose.CheckedChanged += chkRequireClose_CheckedChanged;
-			cmbPassLevel.SelectedIndexChanged += cmbPassLevel_SelectedIndexChanged;
+            chkOnlyMostRecent.CheckedChanged += chkOnlyMostRecent_CheckedChanged;
+            cmbPassLevel.SelectedIndexChanged += cmbPassLevel_SelectedIndexChanged;
 		}
 
 		void cmbPassLevel_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,7 +72,12 @@ namespace ColinsALMCheckinPolicies
 			Config.FailIfAnyResponseIsNeedsWork = chkFailAnyBad.Checked;
 		}
 
-		private void btnCancel_Click(object sender, EventArgs e)
+        void chkOnlyMostRecent_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.CheckOnlyMostRecentReview = chkOnlyMostRecent.Checked;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
 		{
 			DialogResult = DialogResult.Cancel;
 			Close();

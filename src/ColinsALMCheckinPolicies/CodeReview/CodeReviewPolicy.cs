@@ -89,6 +89,7 @@ namespace ColinsALMCheckinPolicies
 				{
 					FailIfAnyResponseIsNeedsWork = true,
 					RequireReviewToBeClosed = true,
+                    CheckOnlyMostRecentReview = true,
 					MinPassLevel = PassLevel.LooksGood
 				};
 			}
@@ -141,14 +142,27 @@ namespace ColinsALMCheckinPolicies
 				}
 				else
 				{
-					foreach (var request in requests)
-					{
-						if (!RequestWasSuccessfullyCompleted(request.WorkItem))
-						{
-							hasBeenReviewed = false;
-							break;
-						}
-					}
+                    if (Config.CheckOnlyMostRecentReview)
+                    {
+                        var request = requests.OrderBy(p => p.WorkItem.CreatedDate).Last();
+                        {
+                            if (!RequestWasSuccessfullyCompleted(request.WorkItem))
+                            {
+                                hasBeenReviewed = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var request in requests)
+                        {
+                            if (!RequestWasSuccessfullyCompleted(request.WorkItem))
+                            {
+                                hasBeenReviewed = false;
+                                break;
+                            }
+                        }
+                    }
 				}
 
 				if (!hasBeenReviewed)
