@@ -1,7 +1,5 @@
 # Colins ALM CornerCheckin Policies
 
-## VSO Build Status
-
 ![](https://colinsalmcorner.visualstudio.com/DefaultCollection/_apis/public/build/definitions/f9a5b53e-c7e7-4025-945e-cc5db1b87c86/11/badge)
 
 ## Details
