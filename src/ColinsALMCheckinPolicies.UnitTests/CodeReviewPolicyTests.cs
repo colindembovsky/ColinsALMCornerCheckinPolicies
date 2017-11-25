@@ -63,7 +63,38 @@ namespace ColinsALMCheckinPolicies.UnitTests
 			}
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("CodeReveiw")]
+        public void TestPolicyFails_When_Review_FilesFound_AtRootLevel_InConfigPath()
+        {
+            var policy = new CodeReviewPolicy()
+            {
+                Config = new CodeReviewPolicyConfig()
+                {
+                    RequireReviewToBeClosed = true,
+                    FailIfAnyResponseIsNeedsWork = true,
+                    MinPassLevel = PassLevel.LooksGood,
+                    Paths = new List<string>() { "$/Project/Folder" }
+                }
+            };
+
+            using (var context = ShimsContext.Create())
+            {                
+                var checkin = FakeUtils.CreatePendingCheckin(new List<ShimWorkItem>() { null }, new List<PendingChange>()
+                {
+                    new ShimPendingChange()
+                    {
+                        ServerItemGet = () => "$/Project/Folder/Item1.cs"
+                    }
+                });
+
+                policy.Initialize(checkin);
+                var failures = policy.Evaluate();
+                Assert.IsTrue(failures.Length > 0);
+            }
+        }
+
+        [TestMethod]
 		[TestCategory("CodeReveiw")]
 		public void TestPolicyPasses_When_NoReview_NoFilesFound_InConfigPath()
 		{
