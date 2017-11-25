@@ -124,12 +124,11 @@ namespace ColinsALMCheckinPolicies
 				serverPathsAffected.Any(itemPath =>
 				    Config.Paths.Any(configPath =>
                     {
-                        // make the path have a trailing slash to distinguish $/Project/DEV from $/Project/DEV-Feature1
-                        if (configPath != "$/")
-                        {
-                            configPath += "\\";
-                        }
-                        return itemPath.Replace('/', '\\').StartsWith(configPath.Replace('/', '\\'));
+                        // replacing the "$" with the "z:" to fake a drive and take advantage of the DirectoryInfo while comparing paths.
+                        var itemDir = new DirectoryInfo(itemPath.Replace("$", "z:").Replace('/', '\\'));
+                        var configDir = new DirectoryInfo(configPath.Replace("$", "z:").Replace('/', '\\'));
+
+                        return configDir.FullName == itemDir.FullName || configDir.IsParentOf(itemDir);
                     })))
 			{
 				var requests = pendingCheckin.WorkItems.CheckedWorkItems.Where(w =>
@@ -158,9 +157,9 @@ namespace ColinsALMCheckinPolicies
 			}
 			
 			return failures.ToArray();
-		}
+		}        
 
-		private bool RequestWasSuccessfullyCompleted(WorkItem codeReviewRequest)
+        private bool RequestWasSuccessfullyCompleted(WorkItem codeReviewRequest)
 		{
 			if (Config.RequireReviewToBeClosed)
 			{
