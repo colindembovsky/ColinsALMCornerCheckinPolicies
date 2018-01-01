@@ -129,7 +129,10 @@ namespace ColinsALMCheckinPolicies
                         {
                             configPath += "\\";
                         }
-                        return itemPath.Replace('/', '\\').StartsWith(configPath.Replace('/', '\\'));
+						var cleanItemPath = itemPath.Replace('/', '\\');
+						var cleanConfigPath = configPath.Replace('/', '\\');
+
+						return cleanItemPath.StartsWith(cleanConfigPath) || $"{cleanItemPath}\\".Equals(cleanConfigPath, StringComparison.OrdinalIgnoreCase);
                     })))
 			{
 				var requests = pendingCheckin.WorkItems.CheckedWorkItems.Where(w =>
