@@ -1,13 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.QualityTools.Testing.Fakes;
 using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.TeamFoundation.VersionControl.Client.Fakes;
-using Microsoft.QualityTools.Testing.Fakes;
-using System.Collections.Generic;
-using Microsoft.TeamFoundation.WorkItemTracking.Client.Fakes;
-using System.Linq;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
-using System.Collections;
+using Microsoft.TeamFoundation.WorkItemTracking.Client.Fakes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace ColinsALMCheckinPolicies.UnitTests
 {
@@ -87,6 +84,42 @@ namespace ColinsALMCheckinPolicies.UnitTests
 						ServerItemGet = () => "$/Project/Folder/Item1.cs"
 					}
 				});
+
+				policy.Initialize(checkin);
+				var failures = policy.Evaluate();
+				Assert.IsTrue(failures.Length > 0);
+			}
+		}
+
+		[TestMethod]
+		[TestCategory("CodeReveiw")]
+		public void TestPolicyFails_When_NotCheckMostRecent_And_OldResponseFailed()
+		{
+			var policy = new CodeReviewPolicy()
+			{
+				Config = new CodeReviewPolicyConfig()
+				{
+					RequireReviewToBeClosed = true,
+					FailIfAnyResponseIsNeedsWork = true,
+					CheckOnlyMostRecentReview = false,
+					MinPassLevel = PassLevel.WithComments
+				}
+			};
+
+			using (var context = ShimsContext.Create())
+			{
+				var oldResponses = new List<WorkItem>()
+				{
+					FakeUtils.CreateCodeReviewResponse(2, "Closed", "Needs Work"),
+					FakeUtils.CreateCodeReviewResponse(3, "Closed", "Looks Good")
+				};
+				var oldReview = FakeUtils.CreateCodeReviewRequest(1, "Closed", "Closed", oldResponses);
+				var newResponses = new List<WorkItem>()
+				{
+					FakeUtils.CreateCodeReviewResponse(3, "Closed", "Looks Good")
+				};
+				var newReview = FakeUtils.CreateCodeReviewRequest(1, "Closed", "Closed", newResponses);
+				var checkin = FakeUtils.CreatePendingCheckin(new List<ShimWorkItem>() { oldReview, newReview });
 
 				policy.Initialize(checkin);
 				var failures = policy.Evaluate();
@@ -603,5 +636,72 @@ namespace ColinsALMCheckinPolicies.UnitTests
                 Assert.IsTrue(failures.Length == 0);
             }
         }
-    }
+
+		[TestMethod]
+		[TestCategory("CodeReveiw")]
+		public void TestPolicySucceeds_When_CheckMostRecent_And_SingleResponse()
+		{
+			var policy = new CodeReviewPolicy()
+			{
+				Config = new CodeReviewPolicyConfig()
+				{
+					RequireReviewToBeClosed = true,
+					FailIfAnyResponseIsNeedsWork = true,
+					CheckOnlyMostRecentReview = true,
+					MinPassLevel = PassLevel.WithComments
+				}
+			};
+
+			using (var context = ShimsContext.Create())
+			{
+				var responses = new List<WorkItem>()
+				{
+					FakeUtils.CreateCodeReviewResponse(2, "Closed", "Looks Good"),
+					FakeUtils.CreateCodeReviewResponse(3, "Closed", "Looks Good")
+				};
+				var reviewWorkItem = FakeUtils.CreateCodeReviewRequest(1, "Closed", "Closed", responses);
+				var checkin = FakeUtils.CreatePendingCheckin(reviewWorkItem);
+
+				policy.Initialize(checkin);
+				var failures = policy.Evaluate();
+				Assert.IsTrue(failures.Length == 0);
+			}
+		}
+
+		[TestMethod]
+		[TestCategory("CodeReveiw")]
+		public void TestPolicySucceeds_When_CheckMostRecent_And_MultipleResponses()
+		{
+			var policy = new CodeReviewPolicy()
+			{
+				Config = new CodeReviewPolicyConfig()
+				{
+					RequireReviewToBeClosed = true,
+					FailIfAnyResponseIsNeedsWork = true,
+					CheckOnlyMostRecentReview = true,
+					MinPassLevel = PassLevel.WithComments
+				}
+			};
+
+			using (var context = ShimsContext.Create())
+			{
+				var oldResponses = new List<WorkItem>()
+				{
+					FakeUtils.CreateCodeReviewResponse(2, "Closed", "Needs Work"),
+					FakeUtils.CreateCodeReviewResponse(3, "Closed", "Looks Good")
+				};
+				var oldReview = FakeUtils.CreateCodeReviewRequest(1, "Closed", "Closed", oldResponses);
+				var newResponses = new List<WorkItem>()
+				{
+					FakeUtils.CreateCodeReviewResponse(3, "Closed", "Looks Good")
+				};
+				var newReview = FakeUtils.CreateCodeReviewRequest(1, "Closed", "Closed", newResponses);
+				var checkin = FakeUtils.CreatePendingCheckin(new List<ShimWorkItem>() { oldReview, newReview });
+
+				policy.Initialize(checkin);
+				var failures = policy.Evaluate();
+				Assert.IsTrue(failures.Length == 0);
+			}
+		}
+	}
 }

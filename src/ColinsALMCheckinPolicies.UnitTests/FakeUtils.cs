@@ -78,6 +78,7 @@ namespace ColinsALMCheckinPolicies.UnitTests
 				}
 			};
 
+			var now = DateTime.Now;
 			var reviewWorkItem = new ShimWorkItem()
 			{
 				TypeGet = () => new ShimWorkItemType()
@@ -87,7 +88,8 @@ namespace ColinsALMCheckinPolicies.UnitTests
 				StateGet = () => state,
 				FieldsGet = () => fakeRequestFields,
 				WorkItemLinksGet = () => fakeLinks,
-				ProjectGet = () => fakeProject
+				ProjectGet = () => fakeProject,
+				CreatedDateGet = () => now,
 			};
 
 			return reviewWorkItem;

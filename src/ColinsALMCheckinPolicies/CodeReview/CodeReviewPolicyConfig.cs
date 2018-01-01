@@ -20,11 +20,13 @@ namespace ColinsALMCheckinPolicies
 		public bool FailIfAnyResponseIsNeedsWork { get; set; }
 		public PassLevel MinPassLevel { get; set; }
 		public List<string> Paths { get; set; }
+		public bool CheckOnlyMostRecentReview { get; set; }
 
 		public CodeReviewPolicyConfig()
 		{
 			// default to the entire collection
 			Paths = new List<string>() { "$/" };
+			CheckOnlyMostRecentReview = false;
 		}
     }
 }

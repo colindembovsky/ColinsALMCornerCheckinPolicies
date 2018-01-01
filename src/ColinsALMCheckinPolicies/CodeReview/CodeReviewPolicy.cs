@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ColinsALMCheckinPolicies
@@ -89,6 +87,7 @@ namespace ColinsALMCheckinPolicies
 				{
 					FailIfAnyResponseIsNeedsWork = true,
 					RequireReviewToBeClosed = true,
+					CheckOnlyMostRecentReview = true,
 					MinPassLevel = PassLevel.LooksGood
 				};
 			}
@@ -144,12 +143,23 @@ namespace ColinsALMCheckinPolicies
 				}
 				else
 				{
-					foreach (var request in requests)
+					if (Config.CheckOnlyMostRecentReview)
 					{
+						var request = requests.OrderBy(p => p.WorkItem.CreatedDate).Last();
 						if (!RequestWasSuccessfullyCompleted(request.WorkItem))
 						{
 							hasBeenReviewed = false;
-							break;
+						}
+					}
+					else
+					{
+						foreach (var request in requests)
+						{
+							if (!RequestWasSuccessfullyCompleted(request.WorkItem))
+							{
+								hasBeenReviewed = false;
+								break;
+							}
 						}
 					}
 				}
