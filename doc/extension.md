@@ -48,5 +48,12 @@ Download the VSIX and install it. In Visual Studio 2017, connect to VSTS or TFS 
 
 ## Release Notes
 
-### Version 3.1
+### Version 3.15
 - add "Check only most recent Request" option
+- fix 4k resolution
+- Closes the following issues:
+    - [14 - items in the root of the config folders](https://github.com/colindembovsky/ColinsALMCornerCheckinPolicies/issues/14)
+    - [11 - screen resolution issue](https://github.com/colindembovsky/ColinsALMCornerCheckinPolicies/issues/11)
+    - [9 - missing buttons](https://github.com/colindembovsky/ColinsALMCornerCheckinPolicies/issues/9)
+    - [6 - add release notes](https://github.com/colindembovsky/ColinsALMCornerCheckinPolicies/issues/6)
+    - [5 - ignore abandoned reviews](https://github.com/colindembovsky/ColinsALMCornerCheckinPolicies/issues/5)
