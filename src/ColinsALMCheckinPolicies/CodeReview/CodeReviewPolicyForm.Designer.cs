@@ -165,9 +165,9 @@
 			this.chkOnlyMostRecent.Location = new System.Drawing.Point(603, 30);
 			this.chkOnlyMostRecent.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
 			this.chkOnlyMostRecent.Name = "chkOnlyMostRecent";
-			this.chkOnlyMostRecent.Size = new System.Drawing.Size(535, 36);
+			this.chkOnlyMostRecent.Size = new System.Drawing.Size(460, 36);
 			this.chkOnlyMostRecent.TabIndex = 10;
-			this.chkOnlyMostRecent.Text = "Check only most recent Review Result";
+			this.chkOnlyMostRecent.Text = "Check only most recent Request";
 			this.chkOnlyMostRecent.UseVisualStyleBackColor = true;
 			// 
 			// CodeReviewPolicyForm
