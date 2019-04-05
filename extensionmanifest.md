@@ -1,4 +1,4 @@
-# Colin's ALM Checkin Policies VS 2017
+# Colin's ALM Checkin Policies VS 2019
 
 _See below for release notes._
 
@@ -8,7 +8,7 @@ _See below for release notes._
 
 > **VERY IMPORTANT**: This policy works inside Visual Studio. You configure it for a Team Project, but each and every Visual Studio that is going to apply this policy needs to have the extension installed since it is evaluated in Visual Studio, not TFS/VSTS.
 
-This custom checkin policy pack (**which ONLY works for VS 2017**) against TFS/VSTS includes the following policies:
+This custom checkin policy pack (**which ONLY works for VS 2019**) against TFS/VSTS includes the following policies:
 1. Code Review Policy
 1. One Work Item Policy
 
@@ -38,7 +38,7 @@ For more information, see [colinsalmcorner.com](http://colinsalmcorner.com)
 
 ## Install Instructions
 
-Download the VSIX and install it. In Visual Studio 2017, connect to VSTS or TFS and connect to a TFVC repository. Then:
+Download the VSIX and install it. In Visual Studio 2019, connect to VSTS or TFS and connect to a TFVC repository. Then:
 
 ![cacpolicies_config.png](cacpolicies_config.png)
 
