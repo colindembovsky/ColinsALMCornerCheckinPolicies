@@ -1,37 +1,56 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26014.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinsALMCheckinPolicies", "ColinsALMCheckinPolicies\ColinsALMCheckinPolicies.csproj", "{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinsALMCheckinPoliciesInstaller", "ColinsALMCheckinPoliciesInstaller\ColinsALMCheckinPoliciesInstaller.csproj", "{4B12A47E-49D1-455F-92D7-F97FC5B5D496}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinsALMCheckinPolicies.UnitTests", "ColinsALMCheckinPolicies.UnitTests\ColinsALMCheckinPolicies.UnitTests.csproj", "{0E2730C8-969D-4034-AE9F-FF73A74BF184}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D2385555-2104-47F4-B760-901EBCC9239E}"
 	ProjectSection(SolutionItems) = preProject
 		..\extensionmanifest.md = ..\extensionmanifest.md
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ColinsALMCheckinPolicies.SharedProject", "ColinsALMCheckinPolicies.SharedProject\ColinsALMCheckinPolicies.SharedProject.shproj", "{859ED682-69A8-43C7-9C4C-C90A016104D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinsALMCheckinPoliciesInstaller2022", "ColinsALMCheckinPoliciesInstaller2022\ColinsALMCheckinPoliciesInstaller2022.csproj", "{A80FC378-ACF1-4A1F-926F-88070972C0D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinsALMCheckinPoliciesInstaller2017", "ColinsALMCheckinPoliciesInstaller2017\ColinsALMCheckinPoliciesInstaller2017.csproj", "{4B12A47E-49D1-455F-92D7-F97FC5B5D496}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinsALMCheckinPolicies2017", "ColinsALMCheckinPolicies2017\ColinsALMCheckinPolicies2017.csproj", "{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColinsALMCheckinPolicies2022", "ColinsALMCheckinPolicies2022\ColinsALMCheckinPolicies2022.csproj", "{3C28F848-F6A5-489B-9F0B-EB7DAB32845F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinsALMCheckinPolicies2017.UnitTests", "ColinsALMCheckinPolicies2017.UnitTests\ColinsALMCheckinPolicies2017.UnitTests.csproj", "{EF096EEC-9A39-479D-B058-59AFA4E571AD}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ColinsALMCheckinPolicies.SharedProject\ColinsALMCheckinPolicies.SharedProject.projitems*{3c28f848-f6a5-489b-9f0b-eb7dab32845f}*SharedItemsImports = 5
+		ColinsALMCheckinPolicies.SharedProject\ColinsALMCheckinPolicies.SharedProject.projitems*{65d1501a-165a-4ab4-aa5e-25fc2224c7b2}*SharedItemsImports = 4
+		ColinsALMCheckinPolicies.SharedProject\ColinsALMCheckinPolicies.SharedProject.projitems*{859ed682-69a8-43c7-9c4c-c90a016104d7}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80FC378-ACF1-4A1F-926F-88070972C0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80FC378-ACF1-4A1F-926F-88070972C0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80FC378-ACF1-4A1F-926F-88070972C0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80FC378-ACF1-4A1F-926F-88070972C0D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B12A47E-49D1-455F-92D7-F97FC5B5D496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B12A47E-49D1-455F-92D7-F97FC5B5D496}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B12A47E-49D1-455F-92D7-F97FC5B5D496}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B12A47E-49D1-455F-92D7-F97FC5B5D496}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E2730C8-969D-4034-AE9F-FF73A74BF184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E2730C8-969D-4034-AE9F-FF73A74BF184}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E2730C8-969D-4034-AE9F-FF73A74BF184}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E2730C8-969D-4034-AE9F-FF73A74BF184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D1501A-165A-4AB4-AA5E-25FC2224C7B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C28F848-F6A5-489B-9F0B-EB7DAB32845F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C28F848-F6A5-489B-9F0B-EB7DAB32845F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C28F848-F6A5-489B-9F0B-EB7DAB32845F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C28F848-F6A5-489B-9F0B-EB7DAB32845F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF096EEC-9A39-479D-B058-59AFA4E571AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF096EEC-9A39-479D-B058-59AFA4E571AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF096EEC-9A39-479D-B058-59AFA4E571AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF096EEC-9A39-479D-B058-59AFA4E571AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

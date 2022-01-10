@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E2730C8-969D-4034-AE9F-FF73A74BF184}</ProjectGuid>
+    <ProjectGuid>{EF096EEC-9A39-479D-B058-59AFA4E571AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ColinsALMCheckinPolicies.UnitTests</RootNamespace>
@@ -109,16 +109,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColinsALMCheckinPolicies\ColinsALMCheckinPolicies.csproj">
-      <Project>{65d1501a-165a-4ab4-aa5e-25fc2224c7b2}</Project>
-      <Name>ColinsALMCheckinPolicies</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Fakes Include="Fakes\Microsoft.TeamFoundation.WorkItemTracking.Client.fakes" />
   </ItemGroup>
   <ItemGroup>
     <Fakes Include="Fakes\Microsoft.TeamFoundation.VersionControl.Client.fakes" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ColinsALMCheckinPolicies2017\ColinsALMCheckinPolicies2017.csproj">
+      <Project>{65d1501a-165a-4ab4-aa5e-25fc2224c7b2}</Project>
+      <Name>ColinsALMCheckinPolicies2017</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

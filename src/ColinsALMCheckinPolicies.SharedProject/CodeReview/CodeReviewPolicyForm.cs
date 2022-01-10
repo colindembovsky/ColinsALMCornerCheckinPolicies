@@ -1,5 +1,5 @@
 ﻿using Microsoft.TeamFoundation.VersionControl.Client;
-using Microsoft.TeamFoundation.VersionControl.Controls.Common;
+//using Microsoft.TeamFoundation.VersionControl.Controls.Common;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -85,6 +85,7 @@ namespace ColinsALMCheckinPolicies
 
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
+			/*
 			using (var diag = new DialogChooseServerFolder(VCServer, "$/"))
 			{
 				if (diag.ShowDialog() == DialogResult.OK)
@@ -97,6 +98,7 @@ namespace ColinsALMCheckinPolicies
 					}
 				}
 			}
+			*/
 		}
 
 		private void btnRemove_Click(object sender, EventArgs e)
