@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>859ed682-69a8-43c7-9c4c-c90a016104d7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ColinsALMCheckinPolicies.SharedProject</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BaseSerializationBinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CodeReview\CodeReviewPolicy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CodeReview\CodeReviewPolicyConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CodeReview\CodeReviewPolicyForm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CodeReview\CodeReviewPolicyForm.Designer.cs">
+      <DependentUpon>CodeReviewPolicyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)CodeReview\CodeReviewPolicySerializationBinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OneWorkItem\OneWorkItemPolicy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OneWorkItem\OneWorkItemPolicyConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OneWorkItem\OneWorkItemPolicyForm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OneWorkItem\OneWorkItemPolicyForm.Designer.cs">
+      <DependentUpon>OneWorkItemPolicyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)OneWorkItem\OneWorkItemPolicySerializationBinding.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)CodeReview\CodeReviewPolicyForm.resx">
+      <DependentUpon>CodeReviewPolicyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)OneWorkItem\OneWorkItemPolicyForm.resx">
+      <DependentUpon>OneWorkItemPolicyForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

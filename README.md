@@ -1,6 +1,7 @@
 # Colins ALM CornerCheckin Policies
 
-![](https://colinsalmcorner.visualstudio.com/DefaultCollection/_apis/public/build/definitions/f9a5b53e-c7e7-4025-945e-cc5db1b87c86/11/badge)
+## NOTE
+This is version has been updated from Colin's original to support Visual Studio 2019 and 2022 using [Microsoft's guidelines](https://docs.microsoft.com/en-us/visualstudio/extensibility/migration/update-visual-studio-extension?view=vs-2022) using a Shared Project for the code. The unit tests will only support the 2017 version of the extension as I don't have a Enterprise licence I cannot edit the fakes and re-test for the new implementations.
 
 ## Details
 TFVC Checkin policies (including Code Review checkin policy)

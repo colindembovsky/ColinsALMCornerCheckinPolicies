@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="ColinsALMCheckinPolicies2019.99D4D65D-6F26-403C-81B0-517CD74C33C6" Version="4.0" Language="en-US" Publisher="Derek Smith (Intact)" />
+        <DisplayName>Colin's ALM Checkin Policies VS 2019</DisplayName>
+        <Description xml:space="preserve">Colin's ALM Corner Custom Checkin Policies, including a Code Review Checkin Policy for VS 2019</Description>
+        <MoreInfo>http://colinsalmcorner.com</MoreInfo>
+        <License>license.txt</License>
+        <Tags>Code Review; Checkin Policies</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="ColinsALMCheckinPolicies2019-2022" Path="|ColinsALMCheckinPolicies2019-2022|" AssemblyName="|ColinsALMCheckinPolicies2019-2022;AssemblyName|" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="ColinsALMCheckinPolicies2019.pkgdef" />
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+</PackageManifest>
